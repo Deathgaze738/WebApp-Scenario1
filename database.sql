@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS todolist;
+USE todolist;
+CREATE TABLE IF NOT EXISTS users
+(	
+	userid int NOT NULL AUTO_INCREMENT,
+	username VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	PRIMARY KEY(userid)
+);
+CREATE TABLE IF NOT EXISTS todos
+(
+	postid int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userid int NOT NULL,
+	title VARCHAR(55),
+	post VARCHAR(255)
+);

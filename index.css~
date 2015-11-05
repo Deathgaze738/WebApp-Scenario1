@@ -1,0 +1,36 @@
+#mainWrapper{
+	width: 100%;
+	height: 100%;
+	margin: 6px;
+}
+#topNav{
+	width: 100%;
+	height: 50px;
+	display: inline;
+}
+#entryForms{
+	height: 20%;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+#entryForms div{
+	display: inline-block;
+	width: 45%;
+	height: 100%;
+	
+}
+#russian{
+	width: 100px;
+	height: 100px;
+}
+.formStan{
+	display: block;
+}
+.formStan label{
+	width: 50px;
+	height: auto;
+}
+.formStan input{	
+	margin-left: 0.5em;
+}
