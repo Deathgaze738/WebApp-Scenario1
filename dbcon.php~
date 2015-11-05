@@ -1,9 +1,9 @@
 <?php
 	$user = "mysql";
-	$pass = "cassiopea738818";
+	$pass = "your_password";
 	try
 	{
-		$dbh = new PDO('mysql:host=localhost;dbname=todolist', $user, $pass);
+		$dbh = new PDO('mysql:host=localhost:3306;dbname=todolist', $user, $pass);
 	}
 	catch(PDOException $e)
 	{

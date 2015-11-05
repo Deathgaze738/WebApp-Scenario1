@@ -34,3 +34,27 @@
 .formStan input{	
 	margin-left: 0.5em;
 }
+#list
+{
+	height: 100%;
+	width: 100%;
+	overflow: scroll;
+	border: solid black 1px;
+}
+#doItem
+{
+	width: 80%;
+	margin: 5px%;
+	border: solid black 1px;
+}
+#title{
+	width: 20%;
+}	
+#post{
+	width: 80%;
+}
+#logoutbox{
+	width: 75px;
+	height: 40px;
+}
+	

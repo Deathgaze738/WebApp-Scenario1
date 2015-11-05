@@ -1,15 +1,12 @@
 <?php
 	include "dbcon.php";
-	/**if(!isset($_SESSION))
+	session_start();
+	if(!isset($_SESSION))
 	{
 		header('Location: index.php?error=2');
-	}**/
+	}
 	$name = $_SESSION['username'];
 	$id = $_SESSION['id'];
-
-	$stmt = $dbh->prepare('SELECT title, post FROM posts WHERE (userid) VALUES (:userid)');
-	$stmt->bindParam(':userid', $id);
-	$result = $stmt->fetchAll();
 	
 ?>
 <!DOCTYPE html>
@@ -20,23 +17,33 @@
 <body>
 	<div id="mainWrapper">
 		<div id="topNav">
-			<ul id="navigation stuff">
 				<?php echo "<h1>Welcome ".$name."!</h1>" ?>
-				<a src="logout.php">
+				<a href="logout.php">
 					<div id="logoutBox">
-						<li>Logout</li>
+						Logout
 					</div>
 				</a>
-			</ul>
 		</div>
 		<div id="list">
+				<div id='doItem'>
+					<form id="newPost" action="createPost.php" method="POST">
+					<div id='title'><label for="postTitle">Title</label><input type="text" name="postTitle"></div>
+					<div id='post'><label for="postContent">Content</label><input type="textarea" name="postContent"></div>
+					<input type="submit">
+					</form>
+				</div>
 			<?php
-				foreach($result as $row)
+				$stmt = $dbh->prepare('SELECT title, post, postid FROM todos WHERE userid=:userid');
+				$stmt->bindParam(':userid', $id);
+				$stmt->execute();
+				$rows = $stmt->fetchAll();
+				foreach($rows as $row)
 				{
 					echo "<div id='doItem'>
-						<div id='title'>".$row['title']."</div>
+						<div id='title'><h1>".$row['title'].", ".$row['postid']."</h1></div>
 						<div id='post'>".$row['post']."</div>
-					</div>"
+						<a href='deletePost.php?postid=".$row['postid']."'>Delete Post</a>
+					</div>";
 				}
 			?>
 		</div>

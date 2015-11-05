@@ -2,16 +2,15 @@
 	include 'dbcon.php';
 	$username = $_POST['regEmail'];
 	$password = $_POST['regPass'];
-	if($password != $_POST['regPass'])
+	if($password != $_POST['regConfirmPass'])
 	{
 		header('Location: index.php?error=3');
 	}
 
-	$stmt = $dbh->prepare('SELECT * FROM users WHERE (username) VALUES (:username)');
+	$stmt = $dbh->prepare('SELECT * FROM users WHERE username=:username');
 	$stmt->bindParam(':username', $username);
-	$result = $stmt->query();
-	
-	if($result->rowCount() != 0)
+	$stmt->execute();
+	if($stmt->rowCount() > 0)
 	{
 		header('Location: index.php?error=4');
 	}
@@ -22,13 +21,14 @@
 		$stmt2->bindParam(':password', $password);
 		$stmt2->execute();
 
-		$stmt3 = $dbh->prepare('SELECT userid FROM users WHERE (username) VALUES (:username)');
+		$stmt3 = $dbh->prepare('SELECT userid FROM users WHERE username=:username');
 		$stmt3->bindParam(':username', $username);
-		$stmt3->query();
+		$stmt3->execute();
 		session_start();
-		$id = $stmt3->fetch(0);
+		$id = $stmt3->fetch();
+		
 		$_SESSION["username"] = $username;
-		$_SESSION["id"] = $id;
-		header('Location: index.php?registered=1');
+		$_SESSION["id"] = $id[0];
+		header('Location: ToDoList.php');
 	}
 ?>
