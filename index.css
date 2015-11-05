@@ -34,3 +34,24 @@
 .formStan input{	
 	margin-left: 0.5em;
 }
+#list
+{
+	height: 100%;
+	width: 100%;
+	overflow: scroll;
+	border: solid black 1px;
+}
+#doItem
+{
+	width: 80%;
+	margin: 3%;
+}
+#title{
+	float: left;
+	width: 20%;
+}	
+#post{
+	float: left;
+	width: 20%;
+}
+}

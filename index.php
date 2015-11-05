@@ -18,13 +18,9 @@
 </head>
 <body>
 	<div id="mainWrapper">
-		<div id="topNav">
-			<h1>сука блять иди нахуй</h1>
-			<img id="russian" src="http://images.akamai.steamusercontent.com/ugc/560989571720326986/03C2436A71CEFD5D75FF5968A1E656ED3B1B91E6/">
-		</div>
 		<div id="entryForms">
 			<div id="loginWrapper">
-				<h1>Login m8</h1>
+				<h1>Login</h1>
 				<fieldset>
 					<form id="loginForm" class="formStan" action="login.php" method="POST">
 						<label for="loginEmail">Email Address</label><input name="loginEmail" type="text"><br>
@@ -34,7 +30,7 @@
 				</fieldset>
 			</div>
 			<div id="registerWrapper">
-				<h1>Register yeah?</h1>
+				<h1>Register</h1>
 				<fieldset>
 					<form id="registerForm" class="formStan" action="register.php" method="POST">
 						<label for="regEmail">Email Address</label><input name="regEmail" type="text"><br>

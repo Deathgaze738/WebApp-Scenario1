@@ -9,7 +9,7 @@
 
 	$stmt = $dbh->prepare('SELECT title, post FROM posts WHERE (userid) VALUES (:userid)');
 	$stmt->bindParam(':userid', $id);
-	$result = $stmt->query();
+	$result = $stmt->fetchAll();
 	
 ?>
 <!DOCTYPE html>
@@ -31,7 +31,13 @@
 		</div>
 		<div id="list">
 			<?php
-				
+				foreach($result as $row)
+				{
+					echo "<div id='doItem'>
+						<div id='title'>".$row['title']."</div>
+						<div id='post'>".$row['post']."</div>
+					</div>"
+				}
 			?>
 		</div>
 	</div>
