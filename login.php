@@ -15,9 +15,14 @@
 	else
 	{
 		session_start();
-		$result = $stmt->fetch();
-		$_SESSION["id"] = $result['userid'][0];
+		$stmt3 = $dbh->prepare('SELECT userid FROM users WHERE username=:username');
+		$stmt3->bindParam(':username', $username);
+		$stmt3->execute();
+		session_start();
+		$id = $stmt3->fetch();
+		
 		$_SESSION["username"] = $username;
+		$_SESSION["id"] = $id[0];
 		header('Location: ToDoList.php');
 	}
 ?>
