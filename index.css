@@ -43,8 +43,8 @@
 }
 #doItem
 {
-	width: 80%;
-	margin: 5px%;
+	width: 70%;
+	margin: 5px;
 	border: solid black 1px;
 }
 #title{
@@ -56,5 +56,10 @@
 #logoutbox{
 	width: 75px;
 	height: 40px;
+}
+#hiddenEdit{
+	float: right;
+	width: 20%;
+	height: 20%;
 }
 	

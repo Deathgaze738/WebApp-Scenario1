@@ -43,7 +43,12 @@
 						<div id='title'><h1>".$row['title']."</h1></div>
 						<div id='post'>".$row['post']."</div>
 						<a href='deletePost.php?postid=".$row['postid']."'>Delete Post</a>
-					</div>";
+                                                <form action='editPost.php' method='POST'>
+                                                <input type='hidden' name='id' value='".$row['postid']."'>
+                                                <input type='submit' value='Edit Post'>
+                                                </form>
+                                               </div>
+                                        </div>";
 				}
 			?>
 		</div>
